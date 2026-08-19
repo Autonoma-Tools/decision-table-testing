@@ -3,8 +3,18 @@
 const { calculateShippingCost } = require('./shippingCost');
 
 // One case per surviving rule of the reduced decision table. The full table is
-// 2 weight classes x 2 destinations x 3 tiers = 12 rules; collapsing the two
-// dont-care rules (C5 and C8, where weight does not affect the outcome) leaves 8.
+// 2 weight classes x 2 destinations x 3 tiers = 12 rules. Four pairs of those
+// rules merge, because in each pair one condition cannot change the outcome, so
+// 8 rules survive.
+//
+// Weight is the dont-care condition where a premium member pays the same at any
+// parcel weight: rules 3 and 9 merge into C5, rules 6 and 12 merge into C8.
+//
+// Tier is the dont-care condition on international parcels, where the
+// domestic-only plus discount does not apply and a plus member pays the free
+// rate: rules 4 and 5 merge into C6, rules 10 and 11 merge into C7.
+//
+// C1 through C4 are the four rules that carry over untouched (rules 1, 2, 7, 8).
 const rules = [
   ['C1', 10, 'domestic', 'free', 8],
   ['C2', 10, 'domestic', 'plus', 4],

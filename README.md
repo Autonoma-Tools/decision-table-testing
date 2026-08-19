@@ -25,7 +25,7 @@ Three conditions drive the price. Weight class is Standard at 20 kg or less and 
 
 Domestic parcels cost 8 at Standard weight and 16 at Overweight. International parcels cost 24 at Standard weight and 50 at Overweight. A free member pays those rates unchanged. A plus member takes 50 percent off, but only domestically, so internationally a plus member pays exactly what a free member pays. A premium member ships domestically for nothing and pays a flat 18 internationally no matter what the parcel weighs.
 
-Two weight classes times two destinations times three tiers is 12 rules. Two of those rules have an outcome that weight cannot change: premium domestic is always 0, and premium international is always 18. Each of those pairs collapses into a single rule with weight marked as a dont-care condition, which takes 12 rules down to 8. The test file has one case for each of the 8, labelled C1 through C8 in table order.
+Two weight classes times two destinations times three tiers is 12 rules. Four pairs of those rules merge, because in each pair one condition cannot change the outcome, and the merged condition is marked as a dont-care. Weight is the dont-care condition twice: a premium member pays 0 domestically and a flat 18 internationally at any parcel weight. Tier is the dont-care condition twice: the plus discount is domestic only, so on an international parcel a plus member pays exactly the free rate. Four merged rules plus the four domestic free and plus rules that carry over untouched leaves 8 surviving rules. The test file has one case for each, labelled C1 through C8 in table order, where C1 through C4 are the carried-over rules and C5 through C8 are the merged ones.
 
 ## Project structure
 
