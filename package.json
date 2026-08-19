@@ -1,0 +1,14 @@
+{
+  "name": "decision-table-testing",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shipping-cost function derived from a three-condition decision table, with one parameterised test per surviving rule.",
+  "license": "MIT",
+  "main": "src/shippingCost.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
